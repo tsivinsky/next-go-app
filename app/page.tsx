@@ -1,8 +1,5 @@
-type Resp = {
-  message: string;
-};
-
-const baseURL = process.env.APP_URL;
+import { baseURL } from "../lib/constants";
+import { Resp } from "../types/resp";
 
 const getData = async () => {
   const resp = await fetch(`${baseURL}/api/message`, {
