@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"time"
 )
 
 type Resp struct {
@@ -13,8 +14,10 @@ type Resp struct {
 func Handler(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("Content-Type", "application/json")
 
+	t := time.Now().Format(time.DateTime)
+
 	res := &Resp{
-		Message: "Hello, World!",
+		Message: t,
 	}
 	data, err := json.Marshal(res)
 	if err != nil {
