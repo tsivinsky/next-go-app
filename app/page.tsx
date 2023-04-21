@@ -2,8 +2,10 @@ type Resp = {
   message: string;
 };
 
+const baseURL = process.env.APP_URL;
+
 const getData = async () => {
-  const resp = await fetch("/api/message", {
+  const resp = await fetch(`${baseURL}/api/message`, {
     cache: "no-store",
   });
   const data: Resp = await resp.json();
